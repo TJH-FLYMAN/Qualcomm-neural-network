@@ -57,8 +57,8 @@ if __name__ == "__main__":
             continue
         image_path = os.path.join(data_path, path)
         create_raw(image_path, platform,save_path)
-    #txt_file = os.path.join(save_path,'raw_list.txt')
-    # if not os.path.exists(txt_file):
-    #     open(txt_file, 'w').close()
-    # write_image_paths_to_txt(save_path,txt_file=txt_file)
+    txt_file = os.path.join(save_path,'raw_list.txt')
+    if not os.path.exists(txt_file):
+         open(txt_file, 'w').close()
+    write_image_paths_to_txt(save_path,txt_file=txt_file)
 #  python png2raw.py -i .... -p ..... -s ....
