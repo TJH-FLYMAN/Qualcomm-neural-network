@@ -1,0 +1,2 @@
+# Qualcomm-neural-network
+script 
