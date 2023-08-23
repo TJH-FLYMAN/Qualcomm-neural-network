@@ -9,3 +9,9 @@ txt文件包含所有raw图像路径
 
 #raw2txt
 将raw数据转换为txt文件，此处的raw数据/txt文件为网络特征。需后处理转换为边界框坐标
+
+#UYVY2RGB
+将UYVY格式的图像转换为RGB格式，按照422存储格式取YUV值，根据公式计算RGB像素
+
+#calcualteRGBdiff
+两张不同尺寸的RGB图像，计算在像素、直方图、SSIM等不同角度的差异值
