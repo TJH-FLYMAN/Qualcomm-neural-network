@@ -76,24 +76,20 @@ if __name__ == "__main__":
     result = uyvy_file[:last_slash_pos + 1]
     mode = args.mode
     rgb_data = uyvy2rgb(uyvy_data,width,height)
+    rgb_image = cv2.cvtColor(rgb_data.copy(), cv2.COLOR_RGB2BGR)
+    cv2.imwrite(result + "img1.ppm", rgb_image)
     if mode == 1:
         rgb_data = RGB_norm_cpu(rgb_data)
-        rgb_image = cv2.cvtColor(rgb_data, cv2.COLOR_RGB2BGR)
-        cv2.imwrite(result+"img1"+"_cpu.ppm",rgb_image)
+        cv2.imwrite(result + "img1" + "_cpu.ppm", cv2.cvtColor(rgb_data, cv2.COLOR_RGB2BGR))
     elif mode == 2:
         rgb_data = RGB_norm_nsp(rgb_data)
-        rgb_image = cv2.cvtColor(rgb_data, cv2.COLOR_RGB2BGR)
-        cv2.imwrite(result+"img1"+"_nsp.ppm",rgb_image)
+        cv2.imwrite(result + "img1" + "_nsp.ppm", cv2.cvtColor(rgb_data, cv2.COLOR_RGB2BGR))
     else:
         nsp_data = rgb_data.copy()
-        rgb_data1 = RGB_norm_cpu(rgb_data)
-        rgb_image1= cv2.cvtColor(rgb_data1, cv2.COLOR_RGB2BGR)
-        rgb_data2 = RGB_norm_nsp(nsp_data)
-        rgb_image2 = cv2.cvtColor(rgb_data2, cv2.COLOR_RGB2BGR)
-        cv2.imwrite(result+"img1"+"_cpu.ppm",rgb_image1)
-        cv2.imwrite(result+"img1"+"_nsp.ppm",rgb_image2)
+        rgb_data = RGB_norm_cpu(rgb_data)
+        cv2.imwrite(result + "img1" + "_cpu.ppm", cv2.cvtColor(rgb_data, cv2.COLOR_RGB2BGR))
+        rgb_data = RGB_norm_nsp(nsp_data)
+        cv2.imwrite(result + "img1" + "_nsp.ppm", cv2.cvtColor(rgb_data, cv2.COLOR_RGB2BGR))
     print("success")
-
-
 
 
